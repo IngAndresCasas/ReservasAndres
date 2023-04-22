@@ -5,4 +5,4 @@
 FROM amazoncorretto:11-alpine-jdk
 MAINTAINER AndresCasas
 COPY out/artifacts/reservas_jar/reservas.jar reservas-app.jar
-ENTRYPOINT ["java","-jar","/reservas-app.jar"]
+ENTRYPOINT ["java","-jar","reservas-app.jar"]
