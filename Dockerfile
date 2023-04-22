@@ -3,6 +3,6 @@
 #COPY pom.xml /home/app
 #RUN mvn -f /home/app/pom.xml clean package
 FROM amazoncorretto:11-alpine-jdk
-MAINTAINER MMIT
-COPY out/artifacts/reservas_jar/reservas.jar mmit.jar
-ENTRYPOINT ["java","-jar","mmit.jar"]
+MAINTAINER AndresCasas
+COPY out/artifacts/reservas_jar/reservas.jar reservas-app.jar
+ENTRYPOINT ["java","-jar","/reservas-app.jar"]
