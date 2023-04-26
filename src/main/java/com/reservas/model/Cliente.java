@@ -1,0 +1,65 @@
+package com.reservas.model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.util.Date;
+import java.util.UUID;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
+
+    @NotBlank(message = "Debe ingresar en nombre completo" )
+    @Size(min = 5, max = 50,message = "Mínimo 5 caracteres y máximo 50")
+    @Column(name = "name")
+    private String nombre_completo;
+
+
+//    @NotBlank(message = "El teléfono es obligatorio")
+//    @Min(value = 5, message = "Cantidad de numeros minimos es 5")
+//    @Max(value = 10,message = "Maximo de numeros 10")
+//    @Pattern(regexp = "^[0-9]{1,2}$", message = "Solo númeeros")
+//    @Column(name = "phone")
+//    private int telefono;
+
+    @NotBlank(message = "El teléfono es obligatorio")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Solo admite numeros ingrese 10 digitos")
+    @Column(name = "phone")
+    private String telefono;
+
+    @NotNull
+    @Email(message = "Correo inválido o existente")
+    @Column(name = "email",unique = true)
+    private String correo;
+
+    @Size(max = 100, message = "El comentario no puede exceder los 100 caracteres")
+    @Column(name = "comment")
+    private String comentario;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Date created;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at",updatable = true)
+    private Date updated;
+
+//  @JsonIgnore
+//  @OneToMany(mappedBy = "cliente")
+//  private List<Reserva> reserva;
+//
+
+
+
+}
