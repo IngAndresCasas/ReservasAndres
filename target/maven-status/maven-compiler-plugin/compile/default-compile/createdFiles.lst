@@ -1,0 +1,6 @@
+com/reservas/RestApplication.class
+com/reservas/repository/IClienteRepository.class
+com/reservas/service/ClienteService.class
+com/reservas/RestApplication$1.class
+com/reservas/controller/rest/ClienteController.class
+com/reservas/model/Cliente.class
