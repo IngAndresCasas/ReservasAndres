@@ -7,7 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-import java.util.UUID;
+
 
 @Entity
 @Getter
@@ -18,7 +18,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Integer id;
 
     @NotBlank(message = "Debe ingresar en nombre completo" )
     @Size(min = 5, max = 50,message = "Mínimo 5 caracteres y máximo 50")
